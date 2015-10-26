@@ -178,7 +178,7 @@ function dosomething_static_content_field_default_field_bases() {
       'hide_blank_items' => 1,
       'path' => '',
     ),
-    'translatable' => 0,
+    'translatable' => 1,
     'type' => 'field_collection',
   );
 
