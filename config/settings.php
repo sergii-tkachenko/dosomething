@@ -8,17 +8,20 @@ define('DS_MODULES_PATH', DS_PROFILE_PATH . '/modules');
 define('DS_THEMES_PATH', DS_PROFILE_PATH . 'themes');
 define('DS_LIBRARIES_PATH', DS_PROFILE_PATH . '/libraries');
 
+require_once DS_LIBRARIES_PATH . '/envkeeper-client-phplib/envkeeper-client.php';
+EnvKeeperClient::setup('http://10.0.1.10:3000', '6834BAA3-4F15-4889-B407-619BA5571ACD');
+
 /**
  * Database settings:
  */
 $databases['default']['default'] = [
-  'database' => getenv('DS_DB_MASTER_NAME') ?: 'dosomething',
-  'username' => getenv('DS_DB_MASTER_USER') ?: 'root',
-  'password' => getenv('DS_DB_MASTER_PASS') ?: '',
-  'host' => getenv('DS_DB_MASTER_HOST') ?: 'localhost',
-  'port' => getenv('DS_DB_MASTER_PORT') ?: '3306',
-  'driver' => getenv('DS_DB_MASTER_DRIVER') ?: 'mysql',
-  'prefix' => getenv('DS_DB_MASTER_PREFIX') ?: '',
+  'database' => EnvKeeperClient::get('db_master_name'),
+  'username' => EnvKeeperClient::get('db_master_user'),
+  'password' => EnvKeeperClient::get('db_master_pass'),
+  'host'     => EnvKeeperClient::get('db_master_host'),
+  'port'     => EnvKeeperClient::get('db_master_port'),
+  'driver'   => EnvKeeperClient::get('db_master_driver'),
+  'prefix'   => EnvKeeperClient::get('db_master_prefix'),
 ];
 
 /**
