@@ -9,8 +9,11 @@ define('DS_THEMES_PATH', DS_PROFILE_PATH . 'themes');
 define('DS_LIBRARIES_PATH', DS_PROFILE_PATH . '/libraries');
 
 require_once DS_LIBRARIES_PATH . '/envkeeper-client-phplib/envkeeper-client.php';
-EnvKeeperClient::setup('http://10.0.1.10:3000', '6834BAA3-4F15-4889-B407-619BA5571ACD');
-
+try {
+  EnvKeeperClient::setup('http://10.0.1.10:3000', '6834BAA3-4F15-4889-B407-619BA5571ACD');
+} catch (Exception $e) {
+  print($e->getMessage()); die();
+}
 /**
  * Database settings:
  */
