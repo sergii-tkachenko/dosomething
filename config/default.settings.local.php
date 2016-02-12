@@ -18,13 +18,13 @@ $databases =  [
      [
       'default' =>
          [
-          'database' => 'dosomething',
-          'username' => 'root',
-          'password' => '',
-          'host' => 'localhost',
-          'port' => '',
-          'driver' => 'mysql',
-          'prefix' => '',
+           'database' => EnvKeeperClient::get('db_master_name'),
+           'username' => EnvKeeperClient::get('db_master_user'),
+           'password' => EnvKeeperClient::get('db_master_pass'),
+           'host'     => EnvKeeperClient::get('db_master_host'),
+           'port'     => EnvKeeperClient::get('db_master_port'),
+           'driver'   => EnvKeeperClient::get('db_master_driver'),
+           'prefix'   => EnvKeeperClient::get('db_master_prefix'),
         ],
     ],
 ];
