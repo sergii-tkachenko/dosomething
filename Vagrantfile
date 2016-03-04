@@ -28,9 +28,10 @@ Vagrant.configure("2") do |config|
     # SSHFS -- reverse mount from within Vagrant box
     config.sshfs.paths = { "/var/www/dev.dosomething.org" => "../dosomething-mount" }
   end
+  config.vm.synced_folder "/Users/sergii/Development/mb/mbc-transactional-email", "/var/www/mb-php/mbc-transactional-email"
   config.vm.synced_folder "/Users/sergii/Development/mb/mbc-digest-email", "/var/www/mb-php/mbc-digest-email"
   config.vm.synced_folder "/Users/sergii/Development/mb/mbp-user-digest", "/var/www/mb-php/mbp-user-digest"
-  config.vm.synced_folder "/Users/sergii/Development/mb/mb-sercure-config/dev", "/var/www/mb-php/mb-sercure-config"
+  config.vm.synced_folder "/Users/sergii/Development/mb/mb-secure-config/dev", "/var/www/mb-php/mb-secure-config"
   # sudo ln -nvfs /var/www/mb-php/mb-sercure-config/mb-secure-config.inc /var/www/mb-php/messagebroker-config/mb-secure-config.inc
   # ssh -L \*:4723:10.100.25.44:4722 aws-admin
 
