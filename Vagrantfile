@@ -19,10 +19,12 @@ Vagrant.configure("2") do |config|
   # SSH Agent forwarding
   config.ssh.forward_agent = true
 
+  # Networking
+  config.vm.network :private_network, ip: "192.168.99.10"
+
   # Mount shared folders
   if ENV['DS_VAGRANT_MOUNT_NFS']
     # NFS
-    config.vm.network :private_network, ip: "10.11.12.13"
     config.vm.synced_folder ".", "/var/www/dev.dosomething.org", type: "nfs"
   else
     # SSHFS -- reverse mount from within Vagrant box
